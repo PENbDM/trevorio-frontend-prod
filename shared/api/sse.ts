@@ -8,7 +8,7 @@ export function connectSSE(
     onDetection: (notification: DetectionNotification) => void
 ): EventSource {
     const sse = new EventSource(
-        "http://127.0.0.1:8000/api/streaming/events/"
+        `${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"}/api/streaming/events/`
     );
 
     sse.addEventListener("open", () => {
